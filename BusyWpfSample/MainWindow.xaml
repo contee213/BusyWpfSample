@@ -1,0 +1,27 @@
+﻿<Window x:Class="BusyWpfSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BusyWpfSample" d:DataContext="{d:DesignInstance local:MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="button" Command="{Binding CustomActionCommand}" Content="Button" HorizontalAlignment="Left" Margin="340,215,0,0" VerticalAlignment="Top" Width="75"/>
+        <GroupBox x:Name="groupBox" Header="GroupBox" HorizontalAlignment="Left" Margin="45,65,0,0" VerticalAlignment="Top" Height="90" Width="155">
+            <Grid>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsBusy}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="58,38,0,0" VerticalAlignment="Top" Width="75"/>
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
